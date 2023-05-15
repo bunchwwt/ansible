@@ -1,0 +1,17 @@
+# to run: ansible-playbook playbook.yml
+hosts: localhost
+tasks:
+- copy: 
+    src: "master.gitconfig" 
+    dest: "~/.gitconfig"
+- homebrew:
+    name: bat
+    state: latest
+- homebrew:
+    name: jq
+    state: latest
+
+- mssql_db:
+    name: zipcodes
+    state: import
+    target: ...
