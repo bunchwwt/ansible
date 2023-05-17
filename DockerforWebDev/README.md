@@ -37,3 +37,22 @@
  - going to be an alias
  - `docker run -p 8080:3000 -v /var/www node` - creates a data volume
  - `docker inspect mucontainer` - see where a volume is located
+ - customizing the host location for a data volume - `docker run -p 8080:3000 -v $(pwd):/var/www node`
+    - node is the name of image, pwd is the host location 
+
+
+## HOOKING A VOLUME TO NODE.JS SOURCE CODE
+- `docker run -p 8080:3000 -v $(pwd):/var/www -w "/var/www" node npm start`
+    - docker run on 3000 internally, setup volumes points to src code in current working directory
+    - use that volume as working directory, so npm starts from proper directory
+    - links source code to container
+    - 
+
+### running aspnet
+ - `docker pull mcr.microsoft.com/dotnet/core/sdk`
+ - `docker run -it -p 8080:5000 -v $(pwd):/app -w "/app" mcr.microsoft.com/dotnet/core/sdk /bin/bash`
+    - this will get us in the container... sweet
+    - now you can run the app in the container.. 
+
+## Building a custom image
+- `docker build -t <your username>/node . `
