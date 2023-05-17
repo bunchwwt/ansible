@@ -1,0 +1,10 @@
+
+[webservers]
+web01
+web02
+
+[databases]
+db[01:02]
+
+
+

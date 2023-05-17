@@ -1,0 +1,4 @@
+# to contain host variables for the db01 system
+---
+beomce_ask_pass: True
+custom_db_port: 1234

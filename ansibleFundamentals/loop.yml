@@ -1,0 +1,14 @@
+---
+- name: Create users
+  hosts: serva.lab.example.com
+  vars:
+    myusers:
+      - aditya
+      - boris
+      - carlotta
+  tasks:
+    - name: Create users
+      user:
+        name: "{{item}}"
+        state: present
+      loop: "{{ myusers }}"
